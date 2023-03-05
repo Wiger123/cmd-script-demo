@@ -33,4 +33,5 @@ EOF
 
 cd ~/.shardeum
 ./shell.sh
+export APP_IP="${externalip}"
 operator-cli gui start
