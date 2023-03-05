@@ -13,8 +13,8 @@ chmod +x installer.sh
 sudo apt install expect -y
 
 externalip=$(curl https://ipinfo.io/ip)
-echo "Get External IP Seccussfully: ${externalip}"
-export APP_IP="${externalip}"
+sudo sed -i '$a\export APP_IP=\"'"${externalip}"'\"' /etc/profile
+source /etc/profile
 
 /usr/bin/expect <<-EOF
     set timeout -1
