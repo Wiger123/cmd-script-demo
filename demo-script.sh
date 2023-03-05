@@ -30,3 +30,8 @@ EOF
 cd ~/.shardeum
 ./shell.sh
 operator-cli gui start
+
+externalip=$(curl https://ipinfo.io/ip)
+echo "Get External IP Seccussfully: ${externalip}"
+export APP_IP="${externalip}"
+export
