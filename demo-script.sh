@@ -12,6 +12,10 @@ curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh
 chmod +x installer.sh
 sudo apt install expect -y
 
+externalip=$(curl https://ipinfo.io/ip)
+echo "Get External IP Seccussfully: ${externalip}"
+export APP_IP="${externalip}"
+
 /usr/bin/expect <<-EOF
     set timeout -1
     spawn ./installer.sh
@@ -30,8 +34,3 @@ EOF
 cd ~/.shardeum
 ./shell.sh
 operator-cli gui start
-
-externalip=$(curl https://ipinfo.io/ip)
-echo "Get External IP Seccussfully: ${externalip}"
-export APP_IP="${externalip}"
-export
